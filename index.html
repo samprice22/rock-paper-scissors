@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lane="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, paper scissors</title>
+</head>
+<body>
+    <script>
+
+        // Generates a random integer
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
+
+        // Defining computer and player choice integers 
+        let c = undefined;
+        let p = undefined;
+
+        // Gets player input
+        let input = prompt("Type rock, paper or scissors to play!");
+
+        // Checks to see what the player chose and assigns it a corresponding integer value
+        if (input == "Rock" || input == "ROCK" || input == "rock") {
+            p = 0;
+            console.log("You chose rock!");
+        } else if (input == "Paper" || input == "PAPER" || input == "paper") {
+            p = 1;
+            console.log("You chose paper!");
+        } else if (input == "Scissors" || input == "SCISSORS" || input == "scissors") {
+            p = 2;
+            console.log("You chose scissors!");
+        }
+
+        // Prints player input
+        console.log(p);
+
+        // Uses the getRandomInt function to assign the computer a choice and logs the given choice
+        function computerPlay(){
+            c = getRandomInt(3);
+
+            if (c == 0) {
+                console.log("The computer used rock!");
+            } else if (c == 1) {
+                console.log("The computer used paper!");
+            } else if (c == 2) {
+                console.log("The computer used scissors!");
+            }
+
+            console.log(c);
+        }
+
+        computerPlay();
+
+        // Handles all draws
+        if (p == c) {
+            console.log("It's a draw!");
+        }
+
+        // Handles all instances where the player uses Rock
+        if (p == 0 && c == 1) {
+            console.log("You lose!");
+        } else if (p == 0 && c == 2) {
+            console.log("You win!");
+        }
+
+        // Handles all instances where the player uses Paper
+        if (p == 1 && c == 0) {
+            console.log("You win!");
+        } else if (p == 1 && c == 2) {
+            console.log("You lose!");
+        }
+
+        // Handles all instances where the player uses Scissors
+        if (p == 2 && c == 0) {
+            console.log("You lose!");
+        } else if (p ==2 && c == 1) {
+            console.log("You win!");
+        }
+
+    </script>
+</body>
